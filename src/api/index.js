@@ -86,3 +86,12 @@ export function getItemList() {
     console.error(error)
   })
 }
+export function getUserList() {
+  return axios.get('https://jsonplaceholder.typicode.com/users')
+  .then((res) => {
+    return res.data
+  })
+  .catch((error) => {
+    console.error(error)
+  })
+}

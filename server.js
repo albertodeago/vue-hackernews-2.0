@@ -113,6 +113,7 @@ function render (req, res) {
 }
 
 app.get('*', isProd ? render : (req, res) => {
+  console.log(req.url)
   readyPromise.then(() => render(req, res))
 })
 

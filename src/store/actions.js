@@ -2,7 +2,8 @@ import {
   fetchUser,
   fetchItems,
   fetchIdsByType,
-  getItemList
+  getItemList,
+  getUserList
 } from '../api'
 
 export default {
@@ -50,8 +51,14 @@ export default {
 
   fetchItems: ({commit, state}) => {
     return getItemList().then(res => {
-      console.log("call done")
       state.itemList = res;
+    }).catch(err => {
+      console.error("ERROR " + err)
+    })
+  },
+  fetchUsers: ({state}) => {
+    return getUserList().then(res => {
+      state.userList = res
     }).catch(err => {
       console.error("ERROR " + err)
     })

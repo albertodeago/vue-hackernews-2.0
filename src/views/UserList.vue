@@ -1,14 +1,14 @@
 <template>
-    <div class="items">
-        <li class="item" v-for="item in items" :key="item.id">
-            {{ item }}
+    <div class="users">
+        <li class="user" v-for="user in users" :key="user.id">
+            {{ user }}
         </li>
     </div>
 </template>
 
 <script>
 export default {
-    name: "item-list",
+    name: "user-list",
     data: () => ({
 
     }),
@@ -18,25 +18,25 @@ export default {
     serverPrefetch () {
         // return the Promise from the action
         // so that the component waits before rendering
-        console.log("Fetching posts")
-        return this.fetchItems()
+        console.log("Fetching users")
+        return this.fetchUsers()
     },
 
     computed: {
-        items() {
-            return this.$store.state.itemList;
+        users() {
+            return this.$store.state.userList;
         }
     },
 
     methods: {
-        fetchItems() {
+        fetchUsers() {
             // return the Promise from the action
-            return this.$store.dispatch('fetchItems');
+            return this.$store.dispatch('fetchUsers');
         }
     }
 }
 </script>
 
-<style>
+<style lang="scss">
 
 </style>
