@@ -1,5 +1,6 @@
 // this is aliased in webpack config based on server/client build
 import { createAPI } from 'create-api'
+import axios from 'axios'
 
 const logRequests = !!process.env.DEBUG_API
 
@@ -73,4 +74,15 @@ export function watchList (type, cb) {
   return () => {
     ref.off('value', handler)
   }
+}
+
+
+export function getItemList() {
+  return axios.get('https://jsonplaceholder.typicode.com/posts')
+  .then((res) => {
+    return res.data
+  })
+  .catch((error) => {
+    console.error(error)
+  })
 }

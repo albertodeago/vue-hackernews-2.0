@@ -1,7 +1,8 @@
 import {
   fetchUser,
   fetchItems,
-  fetchIdsByType
+  fetchIdsByType,
+  getItemList
 } from '../api'
 
 export default {
@@ -45,5 +46,14 @@ export default {
     return state.users[id]
       ? Promise.resolve(state.users[id])
       : fetchUser(id).then(user => commit('SET_USER', { id, user }))
+  },
+
+  fetchItems: ({commit, state}) => {
+    return getItemList().then(res => {
+      console.log("call done")
+      state.itemList = res;
+    }).catch(err => {
+      console.error("ERROR " + err)
+    })
   }
 }

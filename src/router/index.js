@@ -7,6 +7,7 @@ Vue.use(Router)
 const createListView = id => () => import('../views/CreateListView').then(m => m.default(id))
 const ItemView = () => import('../views/ItemView.vue')
 const UserView = () => import('../views/UserView.vue')
+const ItemList = () => import('../views/ItemList.vue')
 
 export function createRouter () {
   return new Router({
@@ -14,6 +15,7 @@ export function createRouter () {
     fallback: false,
     scrollBehavior: () => ({ y: 0 }),
     routes: [
+      { path: '/items', component: ItemList },
       { path: '/top/:page(\\d+)?', component: createListView('top') },
       { path: '/new/:page(\\d+)?', component: createListView('new') },
       { path: '/show/:page(\\d+)?', component: createListView('show') },
