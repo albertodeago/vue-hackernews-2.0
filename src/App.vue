@@ -5,8 +5,10 @@
         <router-link to="/" exact>
           <img class="logo" src="~public/logo-48.png" alt="logo">
         </router-link>
-        <router-link to="/items">Posts</router-link>
-        <router-link to="/users">Users</router-link>
+        <!-- <router-link to="/items">Posts</router-link>
+        <router-link to="/users">Users</router-link> -->
+        <a href="/items">Posts</a>
+        <a href="/users">Users</a>
         <!-- <router-link to="/show">Show</router-link>
         <router-link to="/ask">Ask</router-link>
         <router-link to="/job">Jobs</router-link> -->
