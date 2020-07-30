@@ -6,6 +6,15 @@ import { sync } from 'vuex-router-sync'
 import titleMixin from './util/title'
 import * as filters from './util/filters'
 
+import Vuetify from 'vuetify'
+import 'vuetify/dist/vuetify.min.css'
+
+Vue.use(Vuetify)
+
+const opts = {}
+
+
+
 // mixin for handling title
 Vue.mixin(titleMixin)
 
@@ -21,6 +30,8 @@ export function createApp () {
   const store = createStore()
   const router = createRouter()
 
+  const vuetify = new Vuetify(opts)
+
   // sync the router with the vuex store.
   // this registers `store.state.route`
   sync(store, router)
@@ -29,6 +40,7 @@ export function createApp () {
   // here we inject the router, store and ssr context to all child components,
   // making them available everywhere as `this.$router` and `this.$store`.
   const app = new Vue({
+    vuetify,
     router,
     store,
     render: h => h(App)
